@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
+    rel="stylesheet"
+  />  <!-- normalize css -->
+ 
+    <title>Task Manager</title>
+  </head>
+  <body>
+    <!-- <form class="task-form">
+      <h4>Task manager</h4>
+      <div class="form-control">
+        <input
+          type="text"
+          name="name"
+          class="task-input"
+          placeholder="e.g. wash dishes"
+        />
+        <button type="submit" class="btn submit-btn">submit</button>
+      </div>
+      <div class="form-alert"></div>
+    </form>
+    <section class="tasks-container">
+      <p class="loading-text">Loading...</p>
+      <div class="tasks"></div>
+    </section> -->
+    <!-- axios -->
+    <center style="margin-top: 10vw;">
+      <h1>Sign in</h1>
+      <form class="col-md-5 task-form" method="post">
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input type="text" id="form1Example1" name="username" class="form-control task-input-a" />
+        <label class="form-label" for="form1Example1">Username</label>
+      </div>
+    
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input type="password" id="form1Example2" name="password" class="form-control task-input-b" />
+        <label class="form-label" for="form1Example2">Password</label>
+      </div>
+    
+      <!-- 2 column grid layout for inline styling -->   
+    
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary col-md-3">Sign in</button>
+      <a href="task.html"><button type="button" class="btn btn-primary col-md-3">Sign Up</button></a>
+      <div class="form-alert"></div>
+
+    </form></center>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
+      <script src="./edit-task.js"></script>
+    
+  </body>
+  <!-- MDB -->
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"
+></script>
+
+
+</html>
