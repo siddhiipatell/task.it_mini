@@ -7,4 +7,4 @@ router.route('/').get(getAllTasks).post(createTask)
 router.route('/:id').get(getTask).patch(upadateTask).delete(deleteTask)
 router.route('/users/:name').get(getUser)
 
-module.exports = router
+module.exports = router 

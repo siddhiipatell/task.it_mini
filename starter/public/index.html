@@ -15,25 +15,19 @@
   />  <!-- normalize css -->
  
     <title>Task Manager</title>
+    <style>
+      .error{
+        font-size: 20px;
+        color: red;
+        font-weight: 700;
+      }
+      .fa-eye-slash:hover{
+          cursor: pointer;
+      }
+    </style>
   </head>
   <body>
-    <!-- <form class="task-form">
-      <h4>Task manager</h4>
-      <div class="form-control">
-        <input
-          type="text"
-          name="name"
-          class="task-input"
-          placeholder="e.g. wash dishes"
-        />
-        <button type="submit" class="btn submit-btn">submit</button>
-      </div>
-      <div class="form-alert"></div>
-    </form>
-    <section class="tasks-container">
-      <p class="loading-text">Loading...</p>
-      <div class="tasks"></div>
-    </section> -->
+
     <!-- axios -->
     <center style="margin-top: 10vw;">
       <h1>Sign in</h1>
@@ -46,16 +40,20 @@
     
       <!-- Password input -->
       <div class="form-outline mb-4">
-        <input type="password" id="form1Example2" name="password" class="form-control task-input-b" />
+        <input type="password" id="form1Example2" name="password" class="form-control task-input-b"/>
+        
         <label class="form-label" for="form1Example2">Password</label>
       </div>
+      <i class="eye fas fa-eye-slash" onclick="myFunction()"></i>
+
+      
     
       <!-- 2 column grid layout for inline styling -->   
     
       <!-- Submit button -->
       <button type="submit" class="btn btn-primary col-md-3">Sign in</button>
       <a href="task.html"><button type="button" class="btn btn-primary col-md-3">Sign Up</button></a>
-      <div class="form-alert"></div>
+      <div class="form-alert" style="margin-top: 50px;"></div>
 
     </form></center>
     <script

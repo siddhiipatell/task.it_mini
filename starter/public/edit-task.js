@@ -1,8 +1,8 @@
 const taskInputDOM = document.querySelector('.task-input-a')
 const taskInputDOM1 = document.querySelector('.task-input-b')
-
+const formAlertDOM = document.querySelector('.form-alert')
 const formDOM = document.querySelector('.task-form')
-
+const eyeDOM = document.querySelector('.eye')
 // let tempName
 
 // const showTask = async () => {
@@ -73,16 +73,37 @@ formDOM.addEventListener('submit', async (e) => {
   const pass = taskInputDOM1.value
   try {
     const data = await axios.get(`/api/v1/tasks/users/${name}`)
-    const names=data.data.task.username
+    const names = data.data.task.username
     console.log(data)
-    if (name===names){
-      if(pass === data.data.task.password){
+    if (name === names) {
+      if (pass === data.data.task.password) {
         window.location.replace("/welcome.html");
       }
+      else {
+        formAlertDOM.classList.add("error")
+        formAlertDOM.textContent = `Incorrect Password`
+      }
     }
+
   }
-    catch (error) {
-      console.log(error)
-  } 
+  catch (error) {
+    console.log(error)
+    formAlertDOM.classList.add("error")
+    formAlertDOM.textContent = `User Not Found`
+
+  }
 })
 
+const myFunction = () => {
+
+  if (taskInputDOM1.type === "password") {
+    taskInputDOM1.type = "text";
+    eyeDOM.classList.remove("fa-eye-slash")
+    eyeDOM.classList.add("fa-eye")
+  } else {
+    taskInputDOM1.type = "password";
+    eyeDOM.classList.remove("fa-eye")
+    eyeDOM.classList.add("fa-eye-slash")
+  }
+
+}
