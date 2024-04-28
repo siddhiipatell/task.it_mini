@@ -9,10 +9,15 @@ const UserSchema = new mongoose.Schema({
     },
     password:{
         type:String,
-        required:[true,'Must Provide Name'],
+        required:[true,'Must Provide Password'],
         trim:true,
         maxlength:[20,'Name can not be more than 20 characters']
     },
+    email:{
+        type:String,
+        required:[true,'Must Provide Email'],
+        trim:true,
+    }
     
 })
 module.exports = mongoose.model('Users', UserSchema)
