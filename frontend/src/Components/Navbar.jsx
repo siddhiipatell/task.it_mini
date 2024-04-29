@@ -14,12 +14,12 @@ const items1 = [
   {
     key: "2",
     title: "Home",
-    link: "/Home",
+    link: "/home",
   },
   {
     key: "3",
     title: "Tasks",
-    link: "/Tasks",
+    link: "/tasks",
   },
   {
     key: "4",

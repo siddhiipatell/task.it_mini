@@ -3,24 +3,26 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Profile = () => {
-    const [currentPassword, setCurrentPassword] = useState('');
-  const [newPassword, setNewPassword] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [message, setMessage] = useState("");
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
-      const response = await axios.post('/api/updatePassword', {
+      const response = await axios.post("/api/updateProfile", {
+        name,
         currentPassword,
-        newPassword
+        newPassword,
       });
-      
+
       setMessage(response.data.message);
     } catch (error) {
-      setMessage('An error occurred while updating the password.');
+      setMessage("An error occurred while updating the profile.");
     }
   };
 
@@ -76,7 +78,8 @@ const Profile = () => {
 
           <form
             className="mt-6 bg-white rounded-md grid grid-cols-2"
-            id="signupForm" onSubmit={handleSubmit}
+            id="signupForm"
+            onSubmit={handleSubmit}
           >
             <div>
               <div className="form-group">
@@ -86,12 +89,19 @@ const Profile = () => {
                   type="text"
                   id="name"
                   placeholder={user.username}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
 
               <div className="form-group">
                 <label htmlFor="email">Email</label>
-                <input className="w-full p-2" type="email" id="email" placeholder={user.email} />
+                <input
+                  className="w-full p-2"
+                  type="email"
+                  id="email"
+                  value={user.email}
+                  readOnly
+                />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="form-group">
@@ -121,7 +131,8 @@ const Profile = () => {
                   className="w-full p-2"
                   type="text"
                   id="role"
-                  placeholder={user.role}
+                  value={user.role}
+                  readOnly
                 />
               </div>
 
