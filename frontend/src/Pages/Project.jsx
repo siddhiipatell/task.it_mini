@@ -1,5 +1,9 @@
+import New from "../Components/New";
+
 const Project = () => {
+  
   return (
+    <>
     <div>
       <header className="py-2 px-8 bg-gray-100 shadow-inner h-16">
         <nav aria-label="Breadcrumb" className="text-gray-600">
@@ -12,6 +16,8 @@ const Project = () => {
         </nav>
       </header>
     </div>
+    < New />
+    </>
   );
 };
 
