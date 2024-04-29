@@ -1,66 +1,208 @@
-import React from 'react';
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import { Link } from 'react-router-dom';
-const { Header, Content, Footer, Sider } = Layout;
+import React from "react";
+import {
+  LaptopOutlined,
+  NotificationOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import { Breadcrumb, Layout, Menu, theme } from "antd";
+import { Link } from "react-router-dom";
+import logosvg from "../assets/images/logo.svg";
+
+// const { Header, Content, Footer, Sider } = Layout;
 const items1 = [
   {
-    key: '1',
+    key: "1",
     icon: <LaptopOutlined />,
-    title: 'To Do List',
-    link: '/tasks',
+    title: "To Do List",
+    link: "/tasks",
+  },
+ 
+  {
+    key: "2",
+    title: "Home",
+    link: "/Home",
   },
   {
-    key: '2',
-    icon: <UserOutlined />,
-    title: 'Profile',
-    link: '/profile',
-  } 
+    key: "3",
+    title: "Tasks",
+    link: "/Tasks",
+  },
+  {
+    key: "4",
+    title: "Projects",
+    link: "/projects",
+  },
+  {
+    key: "5",
+    title: "Users",
+    link: "/users",
+  },
 ];
 const Navbar = () => {
-
   const logout = () => {
-    localStorage.removeItem('token');
-    window.location.replace('/login');
-  }
+    localStorage.removeItem("token");
+    window.location.replace("/login");
+  };
   return (
-    <Layout>
-      <Header
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        <div className="demo-logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          // style={{
-          //   flex: 1,
-          //   minWidth: 0,
-          // }}
+    <header className="">
+      <section className="flex items-stretch space-x-10 py-3">
+        <div className="menu-open flex items-center relative">
+          <button className="flex mr-2 lg:hidden">
+            <i className="ri-menu-line"></i>
+          </button>
+          <a href="" >
+            <img
+              src={logosvg}
+              alt="Task.it"
+              width="55"
+              height="50"
+              className="rounded-full ml-5"
+            />
+          </a>
+          {/* <p className="absolute top-0 -right-4 z-20 text-gray-500 text-sm">Beta</p> */}
+        </div>
+        {/* <nav className="flex-1 flex items-center text-gray-400 font-medium relative">
+                    <button className="menu-close lg:hidden absolute top-4 right-4">
+                    </button>
+                    <ol className="list-none flex items-center gap-6">
+                        <li>
+                            <a
+                                className="flex items-center space-x-2"
+                                href="/dashboard/home"
+                                activeClassName="text-gray-800"
+                            >
+                                <p>Home</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                className="flex items-center space-x-2"
+                                href="/dashboard/tasks"
+                                activeClassName="text-gray-800"
+                            >
+                                <p>My Tasks</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                className="flex items-center space-x-2"
+                                href="/dashboard/projects"
+                                activeClassName="text-gray-800"
+                            >
+                                <p>Projects</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                className="flex items-center space-x-2"
+                                href="/dashboard/users"
+                                activeClassName="text-gray-800"
+                            >
+                                <p>Users</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                className="flex items-center space-x-2"
+                                href="/dashboard/orgs"
+                                activeClassName="text-gray-800"
+                            >
+                                <p>Orgs</p>
+                            </a>
+                        </li>
+                    </ol>
+                </nav> */}
+        <nav className="flex-1 flex items-center text-gray-400 font-medium relative">
+          {/* Your menu items */}
+          <Menu mode="horizontal">
+            {items1.map((item) => (
+              <Menu.Item key={item.key} icon={item.icon}>
+                <Link to={item.link}>{item.title}</Link>
+              </Menu.Item>
+            ))}
+            <Menu.Item key="6" onClick={logout}>
+              Logout
+            </Menu.Item>
+          </Menu>
+        </nav>
+      {/* </section>
+      <section className="flex space-x-6 items-center"> */}
+      <div className="flex space-x-6 items-center pr-5">
+        <a
+          className="text-xs text-gray-500 hidden md:block"
+          href=""
+          title="Org you are currently logged into"
         >
-          {items1.map((item) => (
-            <Menu.Item icon={item.icon}>
-               <Link to={item.link} key={item.key}>
-              {item.title}
-             </Link>
-            </Menu.Item>
-          ))}
-          <Menu.Item key="3" onClick={logout}>
-            Logout
-            </Menu.Item>
-            
-        </Menu>
-      </Header>
-      <Content
-        style={{
-          padding: '0 48px',
-        }}
-      >
-        
-      </Content>     
-    </Layout>
+          Org:{" "}
+          <span className="font-medium text-sm text-gray-700">Task.it</span>
+        </a>
+        <div className="grid grid-cols-1 gap-4 text-gray-400">
+          {/* <button title="Coming soon">
+                        <rmx-icon name="add-circle-line"></rmx-icon>
+                    </button> */}
+          <button title="Coming soon" aria-label="Notifications">
+            <i className="ri-notification-line"></i>
+          </button>
+        </div>
+        <div
+          className="flex items-center space-x-2 cursor-pointer"
+          placement="bottom-start"
+          variation="menu"
+        >
+          <img
+            src="https://avatar.tobi.sh/1"
+            alt="Siddhi"
+            width="40"
+            height="40"
+            className="rounded-full"
+          />
+          <div className="flex items-center space-x-2">
+            <div className="flex flex-col items-end">
+              <p className="text-sm font-medium">
+                <a href="/profile">Siddhi</a>
+              </p>
+              <p className="text-xs text-gray-500">Admin</p>
+            </div>
+            {/* <rmx-icon className="text-gray-400" style={{ width: "16px", height: "16px" }} name="arrow-down-s-line"></rmx-icon> */}
+          </div>
+        </div>
+        </div>
+      </section>
+    </header>
+    // <Layout>
+    //   <Header
+    //     style={{
+    //       // display: 'flex',
+    //       alignItems: "center",
+    //     }}
+    //   >
+    //     <div className="demo-logo" />
+    //     <Menu
+    //       theme="dark"
+    //       mode="horizontal"
+    //       // style={{
+    //       //   flex: 1,
+    //       //   minWidth: 0,
+    //       // }}
+    //     >
+    //       {items1.map((item) => (
+    //         <Menu.Item icon={item.icon}>
+    //           <Link to={item.link} key={item.key}>
+    //             {item.title}
+    //           </Link>
+    //         </Menu.Item>
+    //       ))}
+    //       <Menu.Item key="7" onClick={logout}>
+    //         Logout
+    //       </Menu.Item>
+    //     </Menu>
+    //   </Header>
+    //   <Content
+    //     style={{
+    //       padding: "0 48px",
+    //     }}
+    //   ></Content>
+    // </Layout>
   );
 };
 export default Navbar;

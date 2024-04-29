@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    @apply text-gray-800;
+  }
+
+  :root {
+    --primary-1: hsl(219, 70%, 38%);
+    --primary: hsl(248, 92%, 64%);
+    --primary-gradient: linear-gradient(135deg, #7a65fd 0%, #1d6fa3 100%);
+    --primary-dark: hsla(160, 84%, 28%);
+    --primary-translucent: hsla(219, 70%, 38%, 0.2);
+    --primary-disabled: hsl(150, 34%, 70%);
+    --secondary: hsl(0, 0%, 88%);
+    --secondary-dark: hsl(0, 0%, 82%);
+    --secondary-disabled: hsl(0, 0%, 90%);
+  }
+  

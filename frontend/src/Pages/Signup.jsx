@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+// import React from 'react';
 import { toast, Toaster } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import board from '../assets/images/board.png';
+import logofullsvg from '../assets/images/logo-full.svg';
+
 
 const Signup = () => {
     const [formData, setFormData] = useState({
@@ -47,7 +51,160 @@ const Signup = () => {
 
     return (
         <>
-            <Toaster />
+        <Toaster />
+        <main className="w-screen h-screen grid grid-cols-1 lg:grid-cols-2">
+      <section className="place-items-center bg-primary-gradient hidden lg:grid">
+        <div>
+          <div className="text-white">
+            <h1 className="text-lg font-medium">Welcome to Task.it</h1>
+            <div className="flex space-x-2 items-center">
+              <p>Tasks done right!</p>
+              <div className="rounded-full bg-green-500 px-1">
+                <i className="ri-check-double-line"></i>
+              </div>
+            </div>
+            <div className="rounded-md shadow-lg mt-6">
+              <img
+                src={board}
+                alt="Board"
+                height="400"
+                width="500"
+                className="rounded-md"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="grid place-items-center bg-white">
+        <div className="max-w-lg lg:w-10/12 w-9/12">
+          <header className="mb-6 flex justify-center">
+            <img src={logofullsvg} height="65" width="170" alt="Task.it" />
+          </header>
+          <form className="p-6 bg-white rounded-md" >
+            
+              <div className="form-group pb-4">
+                <label htmlFor="Name">Name</label>
+                {/* <input
+                  className="w-full"
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  autoFocus
+                /> */}
+                <input
+                    type="text"
+                    id="name"
+                    className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:border-blue-500"
+                    placeholder="Enter your name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                />
+              </div>
+              {/* <div className="form-group">
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                  className="w-full"
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                />
+              </div> */}
+           
+            <div className="form-group pb-4">
+              <label htmlFor="email">Email</label>
+              {/* <input
+                className="w-full"
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+              /> */}
+              <input
+                type="email"
+                id="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:border-blue-500"
+                placeholder="Enter your email"
+                required
+                />
+            </div>
+            <div className="form-group pb-4">
+              <label htmlFor="password">Password</label>
+              {/* <input
+                className="w-full"
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+              /> */}
+              <input
+                type="password"
+                id="password"
+                className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:border-blue-500"
+                placeholder="Enter your password"
+                value={formData.password}
+                onChange={handleInputChange}
+                required
+                />
+            </div>
+            {/* <div className="form-group">
+              <label htmlFor="org">Org Name</label>
+              <input
+                className="w-full"
+                type="text"
+                id="org"
+                name="org"
+                value={formData.org}
+                onChange={handleChange}
+              />
+            </div> */}
+            <footer className="flex justify-end space-x-4 mt-4">
+              {/* <button
+                type="button"
+                className="bg-gray-100 text-gray-800 border focus:ring-2 focus:ring-primary focus:ring-offset-2 hover:bg-gray-200 px-3 py-2 rounded"
+                
+              >
+                Cancel
+              </button> */}
+              <button
+                type="button"
+                onClick={handleSignupClick}
+                className="bg-primary-gradient text-white shadow-md focus:ring-2 focus:ring-primary focus:ring-offset-2 hover:shadow-lg px-3 py-2 rounded"
+                >
+                Create Account
+                </button>
+              {/* <button
+                type="submit"
+                className="bg-primary-gradient text-white shadow-md focus:ring-2 focus:ring-primary focus:ring-offset-2 hover:shadow-lg px-3 py-2 rounded"
+              >
+                Create Account
+              </button> */}
+            </footer>
+          </form>
+          
+          <div className="mt-8">
+            <p className="text-center text-gray-500">Already have an account? 
+            <Link to="/login" passHref>
+                <p className="text-primary font-medium">Login</p>
+            </Link>
+              
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    </>
+        
+
+            /* <Toaster />
 
             <div className="flex justify-center items-center w-full min-h-screen bg-gray-100">
                 <div className="lg:w-1/2 p-16 bg-white rounded-md shadow-lg">
@@ -111,8 +268,8 @@ const Signup = () => {
                         </Link>
                     </div>
                 </div>
-            </div>
-        </>
+            </div> */
+   
     );
 };
 

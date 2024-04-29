@@ -17,7 +17,7 @@ const port = 3000
 
 const start = async () =>{
     try{
-        await connectDB('mongodb+srv://shahpurav308:Purav308@cluster0.05wrhqv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+        await connectDB('mongodb+srv://patelsiddhi2002:PU5EI9MRHcu1Jnsy@cluster0.gg3p4lg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
         app.listen(port, console.log(`Server is listening on port ${port}`))
     }
     catch (error){

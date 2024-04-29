@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 
 const Profile = () => {
@@ -31,21 +32,24 @@ const Profile = () => {
     }
 
     return (
-        <div className="flex justify-center items-center w-full min-h-[86vh] bg-gray-100">
-            <div className="lg:w-1/2 p-16 bg-white rounded-md shadow-lg">
-                <h1 className="text-3xl font-extrabold text-gray-800">Profile</h1>
-                <div className="mt-4">
-                    {user ? (
-                        <div>
-                            <p className="text-xl text-gray-700"><span className='font-bold'>Name:</span> {user.username}</p>
-                            <p className="text-xl text-gray-700"><span className='font-bold'>Email:</span> {user.email}</p>
-                        </div>
-                    ) : (
-                        <p className="text-sm text-gray-700">No user data found.</p>
-                    )}
+        
+           
+            <div className="flex justify-center items-center w-full min-h-[86vh] bg-gray-100">
+                <div className="lg:w-1/2 p-16 bg-white rounded-md shadow-lg">
+                    <h1 className="text-3xl font-extrabold text-gray-800">Profile</h1>
+                    <div className="mt-4">
+                        {user ? (
+                            <div>
+                                <p className="text-xl text-gray-700"><span className='font-bold'>Name:</span> {user.username}</p>
+                                <p className="text-xl text-gray-700"><span className='font-bold'>Email:</span> {user.email}</p>
+                            </div>
+                        ) : (
+                            <p className="text-sm text-gray-700">No user data found.</p>
+                        )}
+                    </div>
                 </div>
             </div>
-        </div>
+        
     );
 };
 
