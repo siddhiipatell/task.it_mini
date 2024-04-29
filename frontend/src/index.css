@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 * {
     margin: 0;
     padding: 0;
@@ -22,5 +23,112 @@
     --secondary: hsl(0, 0%, 88%);
     --secondary-dark: hsl(0, 0%, 82%);
     --secondary-disabled: hsl(0, 0%, 90%);
+  }
+
+ 
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+  
+  .form-group:not(:last-child) {
+    padding-bottom: 1rem;
+  }
+  
+  .form-group label {
+    color: #a0aec0;
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+  }
+  
+  .form-group input[type='text'],
+  .form-group input[type='email'],
+  .form-group input[type='number'],
+  .form-group input[type='url'],
+  .form-group input[type='password'] {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    background-color: #edf2f7;
+    transition: all 0.3s;
+    outline: none;
+  }
+  
+  .form-group input[type='text']:focus,
+  .form-group input[type='email']:focus,
+  .form-group input[type='number']:focus,
+  .form-group input[type='url']:focus,
+  .form-group input[type='password']:focus {
+    border-color: #63b3ed;
+  }
+  
+  .form-group textarea {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    background-color: #edf2f7;
+    resize: none;
+    transition: all 0.3s;
+    outline: none;
+  }
+  
+  .form-group textarea:focus {
+    border-color: #63b3ed;
+  }
+  
+  [type='checkbox'],
+  [type='radio'] {
+    border-radius: 6px;
+  }
+  
+  [type='checkbox']:focus,
+  [type='radio']:focus {
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  }
+  
+  [type='text']:focus,
+  [type='email']:focus,
+  [type='url']:focus,
+  [type='password']:focus,
+  [type='number']:focus,
+  [type='date']:focus,
+  [type='datetime-local']:focus,
+  [type='month']:focus,
+  [type='search']:focus,
+  [type='tel']:focus,
+  [type='time']:focus,
+  [type='week']:focus,
+  [multiple]:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    background-color: #edf2f7;
+    transition: all 0.3s;
+  }
+  
+  ::placeholder {
+    color: #cbd5e0;
+  }
+  
+  .ng-invalid.ng-dirty.ng-touched[type='text'],
+  .ng-invalid.ng-dirty.ng-touched[type='email'],
+  .ng-invalid.ng-dirty.ng-touched[type='url'],
+  .ng-invalid.ng-dirty.ng-touched[type='password'],
+  .ng-invalid.ng-dirty.ng-touched[type='number'],
+  .ng-invalid.ng-dirty.ng-touched[type='date'],
+  .ng-invalid.ng-dirty.ng-touched[type='datetime-local'],
+  .ng-invalid.ng-dirty.ng-touched[type='month'],
+  .ng-invalid.ng-dirty.ng-touched[type='search'],
+  .ng-invalid.ng-dirty.ng-touched[type='tel'],
+  .ng-invalid.ng-dirty.ng-touched[type='time'],
+  .ng-invalid.ng-dirty.ng-touched[type='week'],
+  .ng-invalid.ng-dirty.ng-touched[multiple],
+  .ng-invalid.ng-dirty.ng-touched textarea,
+  .ng-invalid.ng-dirty.ng-touched select {
+    border: 1px solid #fc8181;
+    box-shadow: 0 0 0 3px rgba(252, 129, 129, 0.5);
   }
   
