@@ -1,6 +1,6 @@
-import Projects from "../Components/Project";
+import Board from "../Components/Board";
 
-const Project = () => {
+const Boards = () => {
   
   return (
     <>
@@ -12,13 +12,13 @@ const Project = () => {
               <a href="/home">Home</a>
             </li>
           </ol>
-          <h1 className="text-xl font-bold text-gray-900">Projects</h1>
+          <h1 className="text-xl font-bold text-gray-900">Boards</h1>
         </nav>
       </header>
     </div>
-    < Projects />
+    < Board />
     </>
   );
 };
 
-export default Project;
+export default Boards;
