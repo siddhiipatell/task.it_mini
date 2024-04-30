@@ -1,4 +1,6 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 // import {
 //   LaptopOutlined,
 //   NotificationOutlined,
@@ -33,6 +35,37 @@ const items1 = [
   },
 ];
 const Navbar = () => {
+  const [name, setName] = useState("");
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        // Fetch user data from the server
+        const name = localStorage.getItem("name");
+        const response = await axios.get(
+          `http://localhost:3000/api/v1/tasks/users/${name}`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`, // Assuming you are storing the token in localStorage
+            },
+          }
+        );
+        setUser(response.data.user);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -153,7 +186,7 @@ const Navbar = () => {
           <div className="flex items-center space-x-2">
             <div className="flex flex-col items-end">
               <p className="text-sm font-medium">
-                <a href="/profile">Siddhi</a>
+                <a href="/profile">{user.username}</a>
               </p>
               <p className="text-xs text-gray-500">Admin</p>
             </div>

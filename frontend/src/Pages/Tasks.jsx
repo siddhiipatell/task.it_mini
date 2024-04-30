@@ -5,7 +5,7 @@ import { toast, Toaster } from 'react-hot-toast';
 import { RiDeleteBin7Line } from "react-icons/ri";
 
 
-const Todo = () => {
+const Tasks = () => {
     const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState('');
     const [loading, setLoading] = useState(true);
@@ -78,6 +78,19 @@ const Todo = () => {
     }
 
     return (
+        <>
+        <header className="py-2 px-8 bg-gray-100 shadow-inner h-16">
+        <nav aria-label="Breadcrumb" className="text-gray-600">
+          <ol className="list-none flex items-center space-x-6 text-sm">
+            <li>
+              <a href="/home">Home</a>
+            </li>
+            
+          </ol>
+          <h1 className="text-xl font-bold text-gray-900">Tasks</h1>
+        </nav>
+      </header>
+
         <div className="p-4">
             <Toaster />
             <Button type="primary" className="mb-4" onClick={() => setVisible(true)}>
@@ -127,7 +140,8 @@ const Todo = () => {
             </div>
 
         </div>
+        </>
     );
 };
 
-export default Todo;
+export default Tasks;

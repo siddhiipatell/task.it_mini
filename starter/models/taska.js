@@ -17,6 +17,14 @@ const UserSchema = new mongoose.Schema({
         type:String,
         required:[true,'Must Provide Email'],
         trim:true,
+    },
+    role:{
+        type:String,
+        defaultValue: 'admin'
+    },
+    img_src:{
+        type:String,
+        defaultValue: 'https://avatar.tobi.sh/1'
     }
     
 })

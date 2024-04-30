@@ -3,7 +3,6 @@ import './App.css'
 import { BrowserRouter as Router,Routes,Route ,Navigate} from 'react-router-dom'
 import Signup from './Pages/Signup'
 import Login from './Pages/Login'
-import Todo from './Pages/Todo'
 import UserPrivateRoute from './Components/Layout/UserPrivateRoute'
 import Profile from './Pages/Profile'
 import LandingPage from './Pages/landingpage';
@@ -11,6 +10,7 @@ import Project from './Pages/Project';
 import Users from './Pages/Users';
 import Home from './Pages/home';
 import Boards from './Pages/Boards'
+import Tasks from './Pages/Tasks'
 
 
 
@@ -27,7 +27,7 @@ function App() {
             <Route path="/projects" exact element={<UserPrivateRoute component={Project} />} />  
             <Route path="/boards/:projectId" exact element={<UserPrivateRoute component={Boards} />} />
             <Route path="/users" exact element={<UserPrivateRoute component={Users} />} />   
-            <Route path="/tasks" exact element={<UserPrivateRoute component={Todo} />} />           
+            <Route path="/tasks" exact element={<UserPrivateRoute component={Tasks} />} />           
             <Route path="/profile" exact element={<UserPrivateRoute component={Profile} />} />           
           </Routes>
         </Router>
