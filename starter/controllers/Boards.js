@@ -4,7 +4,9 @@ const jwt = require('jsonwebtoken');
 
 const getAllBoards = async (req, res) => {
     try {
-        const boards = await Boards.find({});
+        const projectId = req.params.projectId;
+        const boards = await Boards.find({ projectId: projectId });
+        
         res.status(200).json({ boards });
     } catch (error) {
         res.status(500).json({ msg: error.message });
@@ -18,7 +20,6 @@ const createBoard = async (req, res) => {
             projectId: projectId,
             name: req.body.name,
             description: req.body.description,
-            completed: req.body.completed,
             // Add other fields as needed
         };
 

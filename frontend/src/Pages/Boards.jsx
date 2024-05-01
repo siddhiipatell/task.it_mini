@@ -1,5 +1,5 @@
 import Board from "../Components/Board";
-
+import Something from "../Components/Boards";
 const Boards = () => {
   return (
     <>

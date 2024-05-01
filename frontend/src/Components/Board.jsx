@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import { Modal } from "antd";
 import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
@@ -11,10 +11,13 @@ const Boards = () => {
   const [loading, setLoading] = useState(true);
   const [visible, setVisible] = useState(false);
   const [newBoardDescription, setNewBoardDescription] = useState("");
+  const {projectId}=useParams();
+  console.log(projectId);
 
   const fetchBoards = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/v1/boards");
+      const response = await axios.get(`http://localhost:3000/api/v1/boards/${projectId}`);
+      console.log(response.data);
       setBoards(response.data.boards);
       setLoading(false);
     } catch (error) {
@@ -45,7 +48,7 @@ const Boards = () => {
 
   const handleCreateBoard = async () => {
     try {
-      const response = await axios.post("http://localhost:3000/api/v1/boards", {
+      const response = await axios.post(`http://localhost:3000/api/v1/boards/${projectId}`, {
         name: newBoard,
         description: newBoardDescription,
       });
@@ -109,9 +112,9 @@ const Boards = () => {
           {boards.map((board, index) => (
             <div key={index} className="bg-white rounded-md shadow-md p-4">
               <div className="flex justify-between items-center mb-4">
-                <Link to={`/boards/${board._id}`}>
+                
                   <h1 className="text-lg font-semibold">{board.name}</h1>
-                </Link>
+                
                 <div className="flex items-center space-x-2">
                   <button
                     className="text-gray-500 hover:text-red-500"
