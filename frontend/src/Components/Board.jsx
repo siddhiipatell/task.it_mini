@@ -130,7 +130,7 @@ const Boards = () => {
                 <p className="text-sm text-gray-600">
                   Updated on {new Date(board.date).toLocaleDateString()}
                 </p>
-                <p className="text-sm text-gray-600">{"1 Board"}</p>
+                <p className="text-sm text-gray-600">{""}</p>
               </div>
             </div>
           ))}

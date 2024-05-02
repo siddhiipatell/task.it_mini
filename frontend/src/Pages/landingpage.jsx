@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import logofullsvg from "../assets/images/logo-full.svg";
 import Board from "../assets/images/board.png";
 
@@ -53,10 +53,14 @@ const LandingPage = () => {
             </ul>
             <div className="flex justify-center mt-8 space-x-4">
               <button className="bg-primary-gradient text-white shadow-md focus:ring-2 focus:ring-primary focus:ring-offset-2 hover:shadow-lg px-3 py-2 rounded">
-                <Link to="/signup" passHref>Create New Account</Link>
+                <Link to="/signup" passHref>
+                  Create New Account
+                </Link>
               </button>
               <button className="bg-gray-100 text-gray-800 border focus:ring-2 focus:ring-primary focus:ring-offset-2 hover:bg-gray-200 px-3 py-2 rounded">
-              <Link to="/login" passHref>Login</Link>
+                <Link to="/login" passHref>
+                  Login
+                </Link>
               </button>
             </div>
           </div>
@@ -80,10 +84,116 @@ const LandingPage = () => {
               A lot of cool features with a stress on minimalism
             </p>
           </div>
+          
           <div className="flex flex-wrap -mx-2 lg:w-4/5 sm:mx-auto sm:mb-2">
-            {/* Feature cards */}
+          <div className="w-full p-2 sm:w-1/2">
+            <div className="flex items-center h-full p-4 bg-gray-100 rounded">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="3"
+                className="flex-shrink-0 w-6 h-6 mr-4 text-indigo-500"
+                viewBox="0 0 24 24"
+              >
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                <path d="M22 4L12 14.01l-3-3"></path>
+              </svg>
+              <span className="font-normal title-font">Multiple Orgs</span>
+            </div>
+          </div>
+          <div className="w-full p-2 sm:w-1/2">
+            <div className="flex items-center h-full p-4 bg-gray-100 rounded">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="3"
+                className="flex-shrink-0 w-6 h-6 mr-4 text-indigo-500"
+                viewBox="0 0 24 24"
+              >
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                <path d="M22 4L12 14.01l-3-3"></path>
+              </svg>
+              <span className="font-normal title-font">Kanban Board</span>
+            </div>
+          </div>
+          <div className="w-full p-2 sm:w-1/2">
+            <div className="flex items-center h-full p-4 bg-gray-100 rounded">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="3"
+                className="flex-shrink-0 w-6 h-6 mr-4 text-indigo-500"
+                viewBox="0 0 24 24"
+              >
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                <path d="M22 4L12 14.01l-3-3"></path>
+              </svg>
+              <span className="font-normal title-font">Invite users</span>
+            </div>
+          </div>
+          <div className="w-full p-2 sm:w-1/2">
+            <div className="flex items-center h-full p-4 bg-gray-100 rounded">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="3"
+                className="flex-shrink-0 w-6 h-6 mr-4 text-indigo-500"
+                viewBox="0 0 24 24"
+              >
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                <path d="M22 4L12 14.01l-3-3"></path>
+              </svg>
+              <span className="font-normal title-font">Role based access</span>
+            </div>
+          </div>
+          <div className="w-full p-2 sm:w-1/2">
+            <div className="flex items-center h-full p-4 bg-gray-100 rounded">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="3"
+                className="flex-shrink-0 w-6 h-6 mr-4 text-indigo-500"
+                viewBox="0 0 24 24"
+              >
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                <path d="M22 4L12 14.01l-3-3"></path>
+              </svg>
+              <span className="font-normal title-font">Attachments</span>
+            </div>
+          </div>
+          <div className="w-full p-2 sm:w-1/2">
+            <div className="flex items-center h-full p-4 bg-gray-100 rounded">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="3"
+                className="flex-shrink-0 w-6 h-6 mr-4 text-indigo-500"
+                viewBox="0 0 24 24"
+              >
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                <path d="M22 4L12 14.01l-3-3"></path>
+              </svg>
+              <span className="font-normal title-font">
+                Simple user management
+              </span>
+            </div>
           </div>
         </div>
+        </div>
+
+        
       </section>
     </main>
   );

@@ -12,6 +12,14 @@ const getAllBoards = async (req, res) => {
         res.status(500).json({ msg: error.message });
     }
 };
+const getAllBoardsNo = async (req, res) => {
+    try {
+        const boards = await Boards.find({});
+        res.status(200).json({ boards });
+    } catch (error) {
+        res.status(500).json({ msg: error.message });
+    }
+};
 
 const createBoard = async (req, res) => {
     try {
@@ -120,6 +128,7 @@ const deleteTask = async (req, res) => {
 
 module.exports = {
     getAllBoards,
+    getAllBoardsNo,
     createBoard,
     createUser,
     login,

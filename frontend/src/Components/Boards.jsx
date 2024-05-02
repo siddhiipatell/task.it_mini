@@ -5,7 +5,7 @@ import axios from 'axios';
 import { toast, Toaster } from 'react-hot-toast';
 import { RiAddCircleFill, RiDeleteBin5Line } from 'react-icons/ri';
 
-const Something = () => {
+const Boards = () => {
   const { projectId } = useParams(); // Get the projectId from the URL
   const [boards, setBoards] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -117,4 +117,4 @@ const Something = () => {
   );
 };
 
-export default Something;
+export default Boards;

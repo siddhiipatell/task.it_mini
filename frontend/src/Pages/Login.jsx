@@ -43,7 +43,7 @@ const Login = () => {
         const token = data?.token;
         localStorage.setItem("token", token);
         localStorage.setItem("name", data?.user?.username);
-        window.location.replace("/tasks");
+        window.location.replace("/home");
       } else {
         toast.error(data.message);
       }

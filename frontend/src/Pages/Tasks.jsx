@@ -93,9 +93,14 @@ const Tasks = () => {
 
         <div className="p-4">
             <Toaster />
-            <Button type="primary" className="mb-4" onClick={() => setVisible(true)}>
-                Add Task
-            </Button>
+            <div className="w-[360px] h-[120px] left-[31.5px] rounded-[5px] bg-gray-100 border border-gray-500 border-dashed flex items-center justify-center mt-2 ml-1 mb-4">
+          <button
+            className="mb-4 text-sm font-semibold text-left text-gray-500"
+            onClick={() => setVisible(true)}
+          >
+            Add Task
+          </button>
+        </div>
             <Modal
                 title="Add New Task"
                 visible={visible}

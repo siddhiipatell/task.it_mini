@@ -1,9 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import axios from "axios";
 
 const Home = () => {
   const [user, setUser] = useState(null);
+  const [boards, setBoards] = useState([]);
   const [tasks, setTasks] = useState([]);
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -28,6 +30,20 @@ const Home = () => {
     } catch (error) {
       console.error("Error fetching tasks:", error);
       setLoading(false);
+    }
+  };
+  const fetchBoards = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:3000/api/v1/boards/`
+      );
+      console.log(response.data);
+      setBoards(response.data.boards);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching boards:", error);
+      setLoading(false);
+      toast.error("Error fetching boards");
     }
   };
 
@@ -55,6 +71,7 @@ const Home = () => {
     fetchUserData();
     fetchTasks();
     fetchProjects();
+    fetchBoards();
   }, []);
 
   if (loading) {
@@ -63,14 +80,18 @@ const Home = () => {
 
   return (
     <>
-      <div className="ml-8 mt-8 text-gray-500">
-        <p>Welcome,</p>
-        <h1 className="font-medium text-2xl text-gray-900">{user.username}</h1>
-        <p>
-          You are logged into{" "}
-          <span className="font-medium text-gray-900">Task.it</span>
-        </p>
-      </div>
+      {user && (
+        <div className="ml-8 mt-8 text-gray-500">
+          <p>Welcome,</p>
+          <h1 className="font-medium text-2xl text-gray-900">
+            {user.username}
+          </h1>
+          <p>
+            You are logged into{" "}
+            <span className="font-medium text-gray-900">Task.it</span>
+          </p>
+        </div>
+      )}  
       <div className="ml-8 mt-10 grid grid-cols-3">
         <div className="mr-8">
           <h1 className="text-lg text-gray-500 mb-2">
@@ -79,6 +100,7 @@ const Home = () => {
           </h1>
         </div>
       </div>
+      <tasks />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pl-8">
         {tasks.map((task, index) => (
           <div key={index} className="bg-white rounded-md shadow-md p-4">
@@ -104,6 +126,7 @@ const Home = () => {
           </h1>
         </div>
       </div>
+      {/* < Project /> */}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pl-8">
         {projects.map((project, index) => (
@@ -130,6 +153,24 @@ const Home = () => {
             Boards
           </h1>
         </div>
+      </div>
+      {/* <Boards /> */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pl-8 mb-10">
+        {boards.map((board, index) => (
+          <div key={index} className="bg-white rounded-md shadow-md p-4">
+            <div className="flex justify-between items-center mb-4">
+              <h1 className="text-lg font-semibold">{board.name}</h1>
+            </div>
+            <p className="text-sm text-gray-400 mb-7">{board.description}</p>
+
+            <div className="flex justify-between">
+              <p className="text-sm text-gray-600">
+                Updated on {new Date(board.date).toLocaleDateString()}
+              </p>
+              <p className="text-sm text-gray-600">{""}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );
